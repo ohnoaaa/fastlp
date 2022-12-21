@@ -1,0 +1,5 @@
+@use 'global' as g;
+
+.test33{
+  color: g.$blue;
+}

@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+// @import "foundation/reset";
+// @import "foundation/variable";
+// @import "foundation/common";
+// @import "header";
+// @import "footer";
+// @import "navi";
+// @import "subpage";
+// @import "news";
+// @import "contact";
+// @import "animation";
+// @import "top";
+
+@use 'global';
+@use '_common';
+@use 'header';
+@use 'footer';
+@use '_top';
+@use 'news';
+@use 'contact';
+@use 'subpage';
+
+// @forward "foundation/reset" ;
+// @forward "foundation/variable";
+// @forward "foundation/common";
+// @forward "header";
+// @forward "footer";
+// @forward "subpage";
+// @forward "news";
+// @forward "contact";
+// @forward "animation";
+// @forward "top";

@@ -1,0 +1,127 @@
+/*************************************************
+common-style
+*************************************************/
+@mixin base_width{
+  margin: 0 auto;
+  width: 1280px;
+}
+$gr : #01C87C;
+$pp : #7600FF;
+$bgr :#F0F4F6;
+$din : din-2014, sans-serif;
+// @extendでスタイルの継承
+// @mixinでステイルの定義
+// @includeでmixinの呼び出し
+
+// ブレイクポイント
+// PC基準でコーディングする場合
+$breakpoints: (
+  "sp": "screen and (max-width: 400px)",
+  "sm": "screen and (max-width: 599px)", //スマホ
+  "ms": "screen and (max-width: 880px)", //タブレット2
+  "md": "screen and (max-width: 1100px)", //タブレット
+  "lg": "screen and (min-width: 1499px)", //大きめデスクトップ
+) !default;
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints , $breakpoint)} {
+    @content;
+  }
+}
+// @include c.mq(lg)
+*{
+  box-sizing: border-box;
+}
+.ie_ObjectFit {
+object-fit: cover;
+font-family: 'object-fit: cover;'
+}
+
+body{
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  // outline: 2px solid blue;
+
+}
+
+
+// /iOSでのデフォルトスタイルをリセット /
+input[type="submit"],
+input[type="button"] {
+border-radius: 0;
+-webkit-box-sizing: content-box;
+-webkit-appearance: button;
+appearance: button;
+border: none;
+box-sizing: border-box;
+&::-webkit-search-decoration {
+display: none;
+}
+&::focus {
+outline-offset: -2px;
+}
+}
+
+$yg: #FFFD54; 
+// font-size の設定
+// https://stand-4u.com/css/css-fontsize.html
+
+html {
+  font-size: 62.5%;
+}
+/* bodyのフォントサイズを1.6em（16px）に設定 */
+body {
+  font-size: 1.6em;
+  a{
+    display: block;
+    transition: .3s;
+    cursor: pointer;
+  }
+  a:link {
+    // color:#189B12;
+    text-decoration:none;
+  }
+  a:visited {
+    // color:#189B12;
+    text-decoration:none;
+  }
+  a:hover{
+    transform: scale(.93);
+    opacity: 1;
+  }
+  a:active {
+    color:#666;
+  }
+  img{
+    border:0;
+    vertical-align: bottom;
+    width: 100%;
+    height: auto;
+  }
+  .wrapper{
+    width: 1000px;
+    margin: 0 auto;
+    @media screen and (max-width: 1100px) {
+      width: 90%;
+    }
+  }
+  p,li,a,dt,dd,tr,td{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    font-weight: 600;
+    @include mq(sp){
+      font-size: 1.5rem;
+    }
+  }
+  h2,h3,h4{
+    font-weight: 600;
+  }
+  .pc_min{display: block;}
+  .pc{display: block;}.sp,.ssp{display: none;}.pc-tb{  display: block;}
+  .tb{
+    display: none;
+  }
+  .tb{display: none;}
+    @include mq(md){.tb{display: block;}.l-pc{display: none;}}
+    @include mq(ms){.pc_min{display: none;}}
+    @include mq(sm){.pc,.ssp{display: none;}.sp,.pc-tb{display: block;}}
+    @include mq(sp){.sp,.ssp{display: block;}.pc-tb,.pc{display: none;}}
+}
